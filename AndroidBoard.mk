@@ -16,7 +16,11 @@
 
 LOCAL_PATH := $(call my-dir)
 
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+KERNEL_DEFCONFIG := hammerhead-debug_defconfig
+else
 KERNEL_DEFCONFIG := hammerhead_defconfig
+endif
 KERNEL_DIR := kernel/lge/hammerhead
 
 -include $(TOP)/$(KERNEL_DIR)/AndroidKernel.mk
